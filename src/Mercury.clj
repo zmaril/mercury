@@ -24,7 +24,7 @@
   (println (str "About to launch " number-of-servers " servers"))
   (pallet.api/converge 
    (assoc titan-cluster :count number-of-servers)
-   :compute (pallet.configure/compute-service "aw s")))
+   :compute (pallet.configure/compute-service "aws")))
 
 
 (defn destroy-cluster []
