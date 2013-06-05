@@ -11,11 +11,13 @@
   (node-spec
    :image {:os-family :ubuntu :os-version-matches "10.10"}
    :hardware {:min-cores 1}
-   :network {:inbound-ports [22 80]}))
+   :network {:inbound-ports [22 80]
+;;             :security-group "titan-group"
+             }))
 
 (def titan-cluster
   (group-spec "titan-cluster"
-              :extends [(cassandra/server-spec {})] 
+;;              :extends [(cassandra/server-spec {})] 
               :node-spec base-nodes
               :phases {:bootstrap automated-admin-user}))
 
