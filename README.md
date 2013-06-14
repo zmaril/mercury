@@ -1,4 +1,2 @@
-mercury
-=======
+Rumble, rumble. 
 
-Framework to bootstrap and manage Aurelius graph cluster deployments
