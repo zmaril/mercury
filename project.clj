@@ -11,12 +11,14 @@
                  [com.tinkerpop.rexster/rexster-protocol "2.3.0"]
                  ;;Pallet 
                  [com.palletops/pallet "0.8.0-RC.1"]
+
                  [org.cloudhoist/pallet-jclouds "1.5.2"]
                  [org.jclouds/jclouds-allblobstore "1.5.5"]
                  [org.jclouds/jclouds-allcompute "1.5.5"]
                  [org.jclouds.driver/jclouds-slf4j "1.5.5"
                   :exclusions [org.slf4j/slf4j-api]]
                  [org.jclouds.driver/jclouds-sshj "1.5.5"]
+
                  [ch.qos.logback/logback-classic "1.0.1"]
                  ;;Crates
                  [zmaril/titan-crate "0.1.0-SNAPSHOT"]

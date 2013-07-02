@@ -22,4 +22,3 @@
 
 (defn -destroyCluster []
   (cloud/destroy-cluster))
-

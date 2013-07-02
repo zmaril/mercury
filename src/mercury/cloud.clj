@@ -1,6 +1,7 @@
 (ns mercury.cloud
   (:require [pallet.api :as api]
             [pallet.actions :as actions]
+            [pallet.node :as node]
             [pallet.configure :as conf]
             [pallet.crate.automated-admin-user :refer
              [automated-admin-user]]
@@ -9,7 +10,9 @@
             [pallet.crate.upstart :as upstart]
             [clojure.string :as str])
   (:import [com.tinkerpop.rexster.client 
-            RexsterClientFactory RexsterClient]))
+            RexsterClientFactory RexsterClient]
+           [org.apache.commons.configuration
+            BaseConfiguration]))
 
 (def compute-provider (pallet.configure/compute-service "aws"))
 
@@ -23,7 +26,8 @@
                              7001 ;;Cassandra SSL 
                              7199 ;;JMX                             
                              9160 ;;Thift                             
-                             8182 ;;Rexster                             
+                             8182 ;;Rexster
+                             8184 ;;RexPro
                              ]}))
 
 (def titan-cluster
@@ -42,11 +46,11 @@
   (println "Connecting to cluster...")
   (let [addresses (->> (api/group-nodes compute-provider 
                                         [titan-cluster])
-                       (map #(.getPublicAddresses (:node %)))
-                       (apply concat)
+                       (map (comp node/primary-ip :node))
                        (str/join ","))]
-    (RexsterClientFactory/open addresses) ;;this'll break for more then one  address. Need a custom conf. 
-    ))
+    (RexsterClientFactory/open 
+     {"hostname" addresses
+      "graph-name" "graph"})))
 
 (defn new-cluster [number-of-servers]
   (println (str "Launching " number-of-servers " servers..."))
