@@ -29,5 +29,5 @@
                  [com.palletops/java-crate "0.8.0-beta.5"]]
   :repositories
   {"sonatype" "https://oss.sonatype.org/content/repositories/releases/"}
-  :aot [Mercury]
+;;  :aot [Mercury]
   :main mercury.core)
