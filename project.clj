@@ -5,25 +5,25 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :plugins [[com.palletops/pallet-lein "0.6.0-beta.9"]]
   :dependencies [[org.clojure/clojure "1.5.1"]
-
                  ;;Groovy shell
                  [com.tinkerpop.gremlin/gremlin-groovy "2.3.0"]
-
                  ;;Rexster 
                  [com.tinkerpop.rexster/rexster-protocol "2.3.0"]
-
                  ;;Pallet 
-                 [com.palletops/pallet "0.8.0-beta.10"]
-                 [ch.qos.logback/logback-classic "1.0.1"]
+                 [com.palletops/pallet "0.8.0-RC.1"]
                  [org.cloudhoist/pallet-jclouds "1.5.2"]
                  [org.jclouds/jclouds-allblobstore "1.5.5"]
                  [org.jclouds/jclouds-allcompute "1.5.5"]
                  [org.jclouds.driver/jclouds-slf4j "1.5.5"
                   :exclusions [org.slf4j/slf4j-api]]
                  [org.jclouds.driver/jclouds-sshj "1.5.5"]
-
+                 [ch.qos.logback/logback-classic "1.0.1"]
                  ;;Crates
-                 [com.palletops/cassandra-crate "0.8.0-alpha.1"]
+                 [zmaril/titan-crate "0.1.0-SNAPSHOT"]
+                 [com.palletops/crates "0.1.1"]
+                 [com.palletops/runit-crate "0.8.0-alpha.1"]
+                 [com.palletops/upstart-crate "0.8.0-alpha.1"]
+                 [com.palletops/riemann-crate "0.8.0-alpha.2"]
                  [com.palletops/java-crate "0.8.0-beta.5"]]
   :repositories
   {"sonatype" "https://oss.sonatype.org/content/repositories/releases/"}
